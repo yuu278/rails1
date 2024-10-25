@@ -1,0 +1,39 @@
+<div class="back_index">
+  <%= link_to "← 一覧に戻る", schedules_path %>
+</div>
+
+<div class="show_title">
+  <%= @schedule.title %>
+</div>
+
+<div class="go_edit">
+  <%= link_to "編集", edit_schedule_path(@schedule) %>
+</div>
+
+<table class="table table-hover show_table">
+  <tbody>
+    <tr>
+      <th><%= Schedule.human_attribute_name(:start_time) %></th>
+      <td><%= @schedule.start_time %></td>
+    </tr>
+    
+    <tr>
+      <th><%= Schedule.human_attribute_name(:end_time) %></th>
+      <td><%= @schedule.end_time %></td>
+    </tr>
+    
+    <tr>
+      <th><%= Schedule.human_attribute_name(:all_day) %></th>
+      <td>
+        <% if @schedule.all_day %>
+          ○
+        <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <th><%= Schedule.human_attribute_name(:memo) %></th>
+      <td><%= @schedule.memo %></td>
+    </tr>
+  </tbody>
+</table>

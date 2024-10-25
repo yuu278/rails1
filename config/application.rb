@@ -18,6 +18,9 @@ module ScheduleManagement
       db_config = YAML.load(erb_config, aliases: true)
       Rails.application.config.database_configuration = db_config
     end
+
+    config.time_zone = 'Asia/Tokyo'
+    config.active_record.default_timezone = :local
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
