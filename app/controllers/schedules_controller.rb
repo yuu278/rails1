@@ -16,7 +16,8 @@ class SchedulesController < ApplicationController
     if @schedule.save
       redirect_to @schedule, notice: 'スケジュールが作成されました。'
     else
-      render :new
+      flash.now[:alert] = "エラー: " + @schedule.errors.full_messages.join(", ")
+      render :new, status: :unprocessable_entity
     end
   end
 
