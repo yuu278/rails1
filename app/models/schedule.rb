@@ -1,5 +1,9 @@
 class Schedule < ApplicationRecord
-    validate :start_time_should_be_before_end_time
+  validates :title, presence: true
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+  validates :description, presence: true
+  validate :start_time_should_be_before_end_time
 
     private
   
